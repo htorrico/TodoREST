@@ -27,10 +27,13 @@ namespace TodoREST
         public async Task<List<TodoItem>> RefreshDataAsync()
         {
             Items = new List<TodoItem>();
+            string action = "Get";
 
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            //http:xxxx/miapi/product/get
+            var uri = new Uri(string.Format(Constants.RestUrl, action));
             try
             {
+                
                 var response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
@@ -50,7 +53,7 @@ namespace TodoREST
 
         public async Task SaveTodoItemAsync(TodoItem item, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            
 
             try
             {
@@ -62,10 +65,12 @@ namespace TodoREST
                 HttpResponseMessage response = null;
                 if (isNewItem)
                 {
+                    var uri = new Uri(string.Format(Constants.RestUrl, "Create"));
                     response = await client.PostAsync(uri, content);
                 }
                 else
                 {
+                    var uri = new Uri(string.Format(Constants.RestUrl, "Edit"));
                     response = await client.PutAsync(uri, content);
                 }
 
