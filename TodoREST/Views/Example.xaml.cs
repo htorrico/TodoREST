@@ -13,7 +13,7 @@ namespace TodoREST.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Example : ContentPage
-    {
+    {        
         HttpClient client;
         public List<TodoItem> Items { get; private set; }
         public Example()
@@ -28,9 +28,15 @@ namespace TodoREST.Views
 
         public async Task<List<TodoItem>> Get()
         {
+
+            //Repositorio de mi respuesta
             Items = new List<TodoItem>();
+
+            //Armo la url del servicio            
             Uri uri = new Uri(string.Format(Constants.RestUrl, "Get"));            
+
             HttpResponseMessage response = await client.GetAsync(uri);
+
             if (response.IsSuccessStatusCode)
             {
                 string content = await response.Content.ReadAsStringAsync();

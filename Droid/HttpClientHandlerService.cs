@@ -10,7 +10,8 @@ namespace TodoREST.Droid
         public HttpClientHandler GetInsecureHandler()
         {
             HttpClientHandler handler = new HttpClientHandler();
-            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
+            handler.ServerCertificateCustomValidationCallback = 
+                (message, cert, chain, errors) =>
             {
                 if (cert.Issuer.Equals("CN=localhost"))
                     return true;
