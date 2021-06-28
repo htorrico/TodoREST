@@ -7,7 +7,9 @@ namespace TodoREST
 	public class App : Application
 	{
 		public static TodoItemManager TodoManager { get; private set; }
-
+		/// <summary>
+		/// Coment test
+		/// </summary>
 		public App ()
 		{
 			TodoManager = new TodoItemManager (new RestService ());
