@@ -23,6 +23,9 @@ namespace TodoREST.Views
  
             client = new HttpClient();
 
+            
+
+
 
         }
 

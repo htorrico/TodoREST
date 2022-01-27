@@ -13,8 +13,9 @@ namespace TodoREST
 		public App ()
 		{
 			TodoManager = new TodoItemManager (new RestService ());
-            MainPage = new NavigationPage(new TodoListPage());
-            //MainPage = new NavigationPage(new Views.Example());
+			//MainPage = new NavigationPage(new TodoListPage());
+			//MainPage = new NavigationPage(new Views.Example());
+			MainPage = new NavigationPage(new Views.Page1());
 		}
 
 		protected override void OnStart ()

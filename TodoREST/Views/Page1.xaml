@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TodoREST.Views.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Name" x:Name="txtName"></Entry>
+            <Entry Placeholder="Notes" x:Name="txtNotes"></Entry>
+            <CheckBox x:Name="chkDone"></CheckBox>
+            <Button Text="Grabar" Clicked="Button_ClickedAsync2"></Button>
+            <Button Text="Listar" Clicked="Button_ClickedAsync"></Button>
+            <ListView x:Name="ltvItems">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" TextColor="Black" VerticalOptions="Center" />
+                                <Label Text="{Binding Notes}"  VerticalOptions="Center"  />
+                                <CheckBox IsChecked="{Binding Done}" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
